@@ -7,6 +7,8 @@ import sys
 #from view.MainView import MainView
 from view.ManufacturerView import ManufacturerView
 from controller.ManufacturerCtrl import ManufacturerCtrl
+from view.UserView import UserView
+from controller.UserCtrl import UserCtrl
 
 
 class MainCtrl():
@@ -30,6 +32,17 @@ class MainCtrl():
         man_ctrl = ManufacturerCtrl()
         list = man_ctrl.getManufacturersList()
         self.__manView = ManufacturerView(man_ctrl, list)
+
+
+    def userUI(self):
+        '''!
+        Affiche la vue de gestion des users
+        @see view.UserView
+        '''
+        user_ctrl = UserCtrl()
+        list = user_ctrl.getUsersList()
+        self.__userView = UserView(user_ctrl, list)
+        user_ctrl.setView(self.__userView)
         
         
     def quit(self):
